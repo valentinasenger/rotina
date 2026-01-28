@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Routine Luxury</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Playfair+Display:ital,wght@0,600;1,600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="pink-mode">
+    <div class="blob-container">
+        <div class="blob"></div>
+    </div>
+
+    <div class="app-container">
+        <header>
+            <div class="brand">
+                <span class="sub">Personal Planner</span>
+                <h1 class="title">Routine <i>Glow</i></h1>
+            </div>
+            <button id="themeToggle" class="theme-btn" onclick="toggleTheme()">Mood</button>
+        </header>
+
+        <div class="glass-input">
+            <input type="text" id="taskInput" placeholder="O que planeja para hoje?">
+            <div class="input-actions">
+                <input type="date" id="dateInput">
+                <label class="star-check">
+                    <input type="checkbox" id="impInput">
+                    <span class="star-custom">⭐</span>
+                </label>
+                <button onclick="addTask()" class="add-btn">Agendar</button>
+            </div>
+        </div>
+
+        <main class="content">
+            <div class="column">
+                <h2 class="section-label">Prioridades</h2>
+                <div id="importantList" class="task-list"></div>
+            </div>
+
+            <div class="column">
+                <h2 class="section-label">Agenda Geral</h2>
+                <div id="allTasksList" class="task-list"></div>
+            </div>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

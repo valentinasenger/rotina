@@ -1,0 +1,161 @@
+:root {
+    --bg: #fcf6f7;
+    --glass: rgba(255, 255, 255, 0.4);
+    --text: #2d2327;
+    --accent: #ff85a2;
+    --border: rgba(255, 133, 162, 0.2);
+    --shadow: rgba(0, 0, 0, 0.05);
+}
+
+body.blue-mode {
+    --bg: #0b0f1a;
+    --glass: rgba(30, 41, 59, 0.4);
+    --text: #e2e8f0;
+    --accent: #38bdf8;
+    --border: rgba(56, 189, 248, 0.2);
+}
+
+body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Inter', sans-serif;
+    transition: background 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Efeito de fundo animado */
+.blob-container {
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    z-index: -1; overflow: hidden;
+}
+
+.blob {
+    position: absolute;
+    width: 500px; height: 500px;
+    background: var(--accent);
+    filter: blur(120px);
+    opacity: 0.15;
+    animation: move 20s infinite alternate;
+}
+
+@keyframes move {
+    from { transform: translate(-10%, -10%); }
+    to { transform: translate(60%, 40%); }
+}
+
+.app-container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 60px 20px;
+}
+
+header {
+    display: flex; justify-content: space-between; align-items: flex-end;
+    margin-bottom: 50px;
+}
+
+.title { 
+    font-family: 'Playfair Display', serif; 
+    font-size: 2.5rem; margin: 0; 
+}
+
+.sub { text-transform: uppercase; letter-spacing: 4px; font-size: 0.7rem; opacity: 0.6; }
+
+.theme-btn {
+    background: none; border: 1px solid var(--border);
+    color: var(--text); padding: 8px 20px; border-radius: 30px;
+    cursor: pointer; font-size: 0.8rem; transition: 0.3s;
+}
+
+.glass-input {
+    background: var(--glass);
+    backdrop-filter: blur(20px);
+    padding: 30px;
+    border-radius: 24px;
+    border: 1px solid var(--border);
+    box-shadow: 0 10px 40px var(--shadow);
+    margin-bottom: 50px;
+}
+
+input[type="text"] {
+    width: 100%; background: none; border: none;
+    border-bottom: 1px solid var(--border);
+    padding: 10px 0; font-size: 1.2rem; color: var(--text);
+    outline: none; margin-bottom: 20px;
+}
+
+.input-actions { display: flex; gap: 20px; align-items: center; }
+
+input[type="date"] {
+    background: none; border: 1px solid var(--border);
+    color: var(--text); padding: 5px 15px; border-radius: 10px;
+}
+
+.add-btn {
+    margin-left: auto; background: var(--text); color: var(--bg);
+    border: none; padding: 12px 30px; border-radius: 12px;
+    font-weight: 600; cursor: pointer; transition: 0.3s;
+}
+
+.add-btn:hover { opacity: 0.8; transform: translateY(-2px); }
+
+.content { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
+
+.section-label { 
+    font-size: 0.8rem; text-transform: uppercase; 
+    letter-spacing: 2px; opacity: 0.5; margin-bottom: 20px; 
+}
+
+.task-card {
+    background: var(--glass);
+    padding: 20px; border-radius: 18px;
+    margin-bottom: 15px; border: 1px solid var(--border);
+    display: flex; justify-content: space-between; align-items: center;
+    animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } }
+
+.task-card strong { font-weight: 400; font-size: 1rem; }
+
+.date-tag { 
+    font-size: 0.7rem; opacity: 0.6; display: block; margin-top: 5px; 
+}
+
+.del-btn { 
+    background: none; border: none; color: var(--text); 
+    cursor: pointer; opacity: 0.3; transition: 0.3s; 
+}
+
+.del-btn:hover { opacity: 1; color: #ff4d4d; }
+
+.task-card {
+    background: var(--glass);
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--border);
+    padding: 18px;
+    border-radius: 16px;
+    margin-bottom: 12px;
+    display: flex;
+    justify-content: space-between;
+    transition: 0.3s;
+}
+
+.task-card.completed strong {
+    text-decoration: line-through;
+    opacity: 0.5;
+}
+
+.task-actions button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 0.75rem;
+    margin-left: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.edit-btn { color: var(--text); opacity: 0.6; }
+.del-btn { color: #ff4d4d; font-weight: bold; }
